@@ -1,3 +1,6 @@
+import Test from "./test"
+
+
 const Header = (props) => {
   return (
     <div>
@@ -57,6 +60,7 @@ const App = () => {
     <Header course={course} />
     <Content parts={course.parts} />
     <Total parts={course.parts} />
+    <Test />
     </>
   )
 }
