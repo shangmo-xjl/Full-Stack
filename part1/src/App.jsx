@@ -1,5 +1,5 @@
 import Test from "./test"
-
+import Feedback from "./feedback"
 
 const Header = (props) => {
   return (
@@ -61,6 +61,7 @@ const App = () => {
     <Content parts={course.parts} />
     <Total parts={course.parts} />
     <Test />
+    <Feedback />
     </>
   )
 }

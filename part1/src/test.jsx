@@ -140,7 +140,7 @@ const Test = () => {
     
 
     return (
-        <div>
+        <>
             {left}
             <Button onClick={handleLeftClick} text="left" />
             <Button onClick={handleRightClick} text="right" />
@@ -148,7 +148,7 @@ const Test = () => {
             <p>Total: {total}</p>
             <History allClicks={allClicks} />
             <Button onClick={hello('肖健林')} text="hello" />
-        </div>
+        </>
     )
 }
 
