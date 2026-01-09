@@ -1,5 +1,7 @@
-import Test from "./test"
+import Test from "./test";
 import Feedback from "./feedback"
+import FamousQuote from "./famousQuote";
+import { useState } from 'react';
 
 const Header = (props) => {
   return (
@@ -55,13 +57,30 @@ const App = () => {
     ]
   }
 
+  const [activeTab, setActiveTab] = useState('course'); // course, feedback, quotes
+
   return (
     <>
-    <Header course={course} />
-    <Content parts={course.parts} />
-    <Total parts={course.parts} />
-    <Test />
-    <Feedback />
+      {/* Top Tab Navigation */}
+      <div style={{ marginTop: '20px', borderTop: '1px solid #ccc', paddingTop: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+          <button onClick={() => setActiveTab('course')} style={{ marginRight: '10px', backgroundColor: activeTab === 'course' ? '#ddd' : '#fff' }}>Course</button>
+          <button onClick={() => setActiveTab('feedback')} style={{ marginRight: '10px', backgroundColor: activeTab === 'feedback' ? '#ddd' : '#fff' }}>Feedback</button>
+          <button onClick={() => setActiveTab('quotes')} style={{ backgroundColor: activeTab === 'quotes' ? '#ddd' : '#fff' }}>Quotes</button>
+        </div>
+
+        <div>
+          {activeTab === 'course' && (
+            <div>
+              <Content parts={course.parts} />
+              <Total parts={course.parts} />
+              <Test />
+            </div>
+          )}
+          {activeTab === 'feedback' && <Feedback />}
+          {activeTab === 'quotes' && <FamousQuote />}
+        </div>
+      </div>
     </>
   )
 }
